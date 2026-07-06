@@ -1,8 +1,8 @@
 name = "talk-gacha"
-compatibility_date = "2025-07-05"
+compatibility_date = "2025-07-06"
 
 [site]
-bucket = "./public"
+bucket = "./dist"
 
 # 必要になったらD1やKVの設定を追加
 # [[d1_databases]]
