@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>トークテーマガチャ - 雑談が盛り上がる話題ルーレット</title>
+  <meta name="description" content="雑談が盛り上がる話題がランダムで出てくるルーレット。会話のネタ切れを解消！">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎰</text></svg>">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎰 トークテーマガチャ</h1>
+      <p class="subtitle">雑談が盛り上がる話題ルーレット</p>
+    </header>
+
+    <main>
+      <div class="roulette-container">
+        <div id="roulette-card" class="card">
+          <div class="card-content">
+            <div class="category-badge" id="category-badge">カテゴリー</div>
+            <div class="topic-text" id="topic-text">話題を表示します</div>
+            <div class="tags" id="tags"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button id="spin-btn" class="spin-btn">
+          <span class="btn-text">ルーレットを回す</span>
+          <span class="btn-icon">🎲</span>
+        </button>
+        <button id="reset-btn" class="reset-btn">
+          <span>リセット</span>
+        </button>
+      </div>
+
+      <div class="history-section">
+        <h2>出題履歴</h2>
+        <div id="history-list" class="history-list">
+          <p class="empty">まだ話題が出題されていません</p>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>☕️ Talk Gacha</p>
+    </footer>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

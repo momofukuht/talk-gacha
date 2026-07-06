@@ -1,0 +1,220 @@
+{
+  "categories": [
+    {
+      "id": "hobby",
+      "name": "趣味・興味",
+      "color": "#FF6B6B"
+    },
+    {
+      "id": "career",
+      "name": "働き方・キャリア",
+      "color": "#4ECDC4"
+    },
+    {
+      "id": "travel",
+      "name": "旅行・場所",
+      "color": "#45B7D1"
+    },
+    {
+      "id": "food",
+      "name": "食事・料理",
+      "color": "#FFA07A"
+    },
+    {
+      "id": "values",
+      "name": "価値観・人生",
+      "color": "#98D8C8"
+    },
+    {
+      "id": "relationships",
+      "name": "人間関係",
+      "color": "#F7DC6F"
+    },
+    {
+      "id": "future",
+      "name": "未来・夢想",
+      "color": "#BB8FCE"
+    },
+    {
+      "id": "trivia",
+      "name": "日常・雑学",
+      "color": "#85C1E9"
+    }
+  ],
+  "topics": [
+    {
+      "id": 1,
+      "text": "休日の過ごし方、理想と現実",
+      "category": "hobby",
+      "tags": ["週末", "リラックス"]
+    },
+    {
+      "id": 2,
+      "text": "子供の頃の夢、今思うと？",
+      "category": "values",
+      "tags": ["童年", "夢想"]
+    },
+    {
+      "id": 3,
+      "text": "無人島に持っていくもの3つ",
+      "category": "trivia",
+      "tags": ["選択", "必需品"]
+    },
+    {
+      "id": 4,
+      "text": "最近ハマっていること",
+      "category": "hobby",
+      "tags": ["趣味", "トレンド"]
+    },
+    {
+      "id": 5,
+      "text": "通勤・通学中の楽しみ",
+      "category": "food",
+      "tags": ["日常", "時間活用"]
+    },
+    {
+      "id": 6,
+      "text": "理想の休日スケジュール",
+      "category": "hobby",
+      "tags": ["週末", "計画"]
+    },
+    {
+      "id": 7,
+      "text": "長所と短所、身边人からの驚愕的な評価",
+      "category": "relationships",
+      "tags": ["交友", "自分史"]
+    },
+    {
+      "id": 8,
+      "text": "一億円があ明日から何する?",
+      "category": "future",
+      "tags": ["夢想", "資金"]
+    },
+    {
+      "id": 9,
+      "text": "ストレス発散方法の嚴選",
+      "category": "hobby",
+      "tags": ["健康", "リフレッシュ"]
+    },
+    {
+      "id": 10,
+      "text": "Twitter/Xのトレンド、正直どう思う？",
+      "category": "trivia",
+      "tags": ["SNS", "流行"]
+    },
+    {
+      "id": 11,
+      "text": "学生時代の黒歴史、懺悔の間へ",
+      "category": "relationships",
+      "tags": ["学生時代", "秘密"]
+    },
+    {
+      "id": 12,
+      "text": "理想の住む街、国内VS海外",
+      "category": "travel",
+      "tags": ["住居", "移民"]
+    },
+    {
+      "id": 13,
+      "text": "使って良かったお金、後悔した支出",
+      "category": "values",
+      "tags": ["金銭感覚", "後悔"]
+    },
+    {
+      "id": 14,
+      "text": "AIとの付き合い方、便利？こわい？",
+      "category": "trivia",
+      "tags": ["技術", "AI"]
+    },
+    {
+      "id": 15,
+      "text": "名刺交換から深い関係になるまで",
+      "category": "relationships",
+      "tags": ["人間関係", "信任"]
+    },
+    {
+      "id": 16,
+      "text": "お酒飲まない夜、なにしてる？",
+      "category": "hobby",
+      "tags": ["休日", "夜"]
+    },
+    {
+      "id": 17,
+      "text": "熱中したことで周囲に心配された話",
+      "category": "hobby",
+      "tags": ["没頭", "周辺"]
+    },
+    {
+      "id": 18,
+      "text": "海外旅行での失敗談、笑い話に変えよう",
+      "category": "travel",
+      "tags": ["海外", "失敗談"]
+    },
+    {
+      "id": 19,
+      "text": "好きな季節と、その理由",
+      "category": "values",
+      "tags": ["季節", "自然"]
+    },
+    {
+      "id": 20,
+      "text": "理想と現実のギャップ、職場編",
+      "category": "career",
+      "tags": ["就労", "ギャップ"]
+    },
+    {
+      "id": 21,
+      "text": "生存本能が働いた瞬間",
+      "category": "trivia",
+      "tags": ["経験", "危機"]
+    },
+    {
+      "id": 22,
+      "text": "初デートの服装、今ならもっと",
+      "category": "relationships",
+      "tags": ["恋愛", "後悔"]
+    },
+    {
+      "id": 23,
+      "text": "SNSで一番イラつく投稿",
+      "category": "trivia",
+      "tags": ["SNS", "不満"]
+    },
+    {
+      "id": 24,
+      "text": "宝くじ当選後の人生設計",
+      "category": "future",
+      "tags": ["資産", "計画"]
+    },
+    {
+      "id": 25,
+      "text": "子供の頃の友達との思い出",
+      "category": "relationships",
+      "tags": ["童年", "友達"]
+    },
+    {
+      "id": 26,
+      "text": "スマホがなかった時代、どう過ごした？",
+      "category": "trivia",
+      "tags": ["過去", "比較"]
+    },
+    {
+      "id": 27,
+      "text": "理想の朝活、実践してる？",
+      "category": "hobby",
+      "tags": ["朝活", "ルーティン"]
+    },
+    {
+      "id": 28,
+      "text": "人には言えない秘密の楽しみ",
+      "category": "hobby",
+      "tags": ["秘密", "趣味"]
+    },
+    {
+      "id": 29,
+      "text": "転職を考えた瞬間",
+      "category": "career",
+      "tags": ["転職", "きっかけ"]
+    }
+  ]
+}

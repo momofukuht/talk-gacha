@@ -1,0 +1,15 @@
+name = "talk-gacha"
+compatibility_date = "2025-07-05"
+
+[site]
+bucket = "./public"
+
+# 必要になったらD1やKVの設定を追加
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "talk-gacha-db"
+# database_id = "your-database-id"
+
+# [[kv_namespaces]]
+# binding = "KV"
+# id = "your-kv-namespace-id"
