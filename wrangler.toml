@@ -1,15 +1,15 @@
 name = "talk-gacha"
+main = "workers-site/index.js"
 compatibility_date = "2025-07-06"
 
 [site]
 bucket = "./dist"
 
-# 必要になったらD1やKVの設定を追加
-# [[d1_databases]]
-# binding = "DB"
-# database_name = "talk-gacha-db"
-# database_id = "your-database-id"
+[[d1_databases]]
+binding = "DB"
+database_name = "talk-gacha-db"
+database_id = "c9031af5-9bac-4ba1-ab39-1212bae31553"
 
-# [[kv_namespaces]]
-# binding = "KV"
-# id = "your-kv-namespace-id"
+[[kv_namespaces]]
+binding = "TALK_GACHA_KV"
+id = "00429dfcbadb4e658526348fd91cc85e"
