@@ -4,7 +4,12 @@ const state = {
   topics: [],
   categories: [],
   history: JSON.parse(localStorage.getItem('talkGachaHistory') || '[]'),
-  spinning: false
+  spinning: false,
+  deviceId: localStorage.getItem('talkGachaDeviceId') || (() => {
+    const id = crypto.randomUUID();
+    localStorage.setItem('talkGachaDeviceId', id);
+    return id;
+  })()
 };
 
 const els = {
@@ -19,15 +24,38 @@ const els = {
 
 async function init() {
   try {
-    const res = await fetch('/api/topics');
-    const data = await res.json();
+    const [topicsRes, historyRes] = await Promise.all([
+      fetch('/api/topics'),
+      fetch(`/api/history?device_id=${encodeURIComponent(state.deviceId)}`)
+    ]);
+    const data = await topicsRes.json();
     state.categories = data.categories;
     state.topics = data.topics;
+
+    if (historyRes.ok) {
+      const kvHistory = await historyRes.json();
+      const localHistory = state.history;
+      const merged = mergeHistory(localHistory, kvHistory);
+      state.history = merged;
+      localStorage.setItem('talkGachaHistory', JSON.stringify(state.history));
+    }
     renderHistory();
   } catch (e) {
-    console.error('Failed to load topics:', e);
+    console.error('Failed to load:', e);
     els.topicText.textContent = '話題データの読み込みに失敗しました 😢';
   }
+}
+
+function mergeHistory(local, kv) {
+  const seen = new Set(local.map(h => h.text + h.timestamp));
+  const merged = [...local];
+  for (const h of kv) {
+    if (!seen.has(h.text + h.timestamp)) {
+      merged.unshift(h);
+      seen.add(h.text + h.timestamp);
+    }
+  }
+  return merged.slice(0, 20);
 }
 
 function getCategory(id) {
@@ -44,30 +72,43 @@ function updateCard(topic) {
   els.categoryBadge.textContent = category.name;
   els.categoryBadge.style.background = category.color;
   els.topicText.textContent = topic.text;
-  els.topicText.style.color = '#fff';
+  els.topicText.style.color = category.color;
 
   els.tags.innerHTML = '';
-  if (topic.tags && topic.tags.length) {
-    topic.tags.forEach(tag => {
-      const span = document.createElement('span');
-      span.className = 'tag';
-      span.textContent = `#${tag}`;
-      els.tags.appendChild(span);
-    });
-  }
+  (topic.tags || []).forEach(tag => {
+    const span = document.createElement('span');
+    span.className = 'tag';
+    span.textContent = `#${tag}`;
+    els.tags.appendChild(span);
+  });
 }
 
-function addToHistory(topic) {
+async function addToHistory(topic) {
   const category = getCategory(topic.category);
-  state.history.unshift({
+  const entry = {
     text: topic.text,
     category: category.name,
     color: category.color,
     timestamp: Date.now()
-  });
+  };
+  state.history.unshift(entry);
   if (state.history.length > 20) state.history.pop();
   localStorage.setItem('talkGachaHistory', JSON.stringify(state.history));
   renderHistory();
+
+  try {
+    await fetch('/api/history', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        device_id: state.deviceId,
+        topic: entry,
+        timestamp: entry.timestamp
+      })
+    });
+  } catch (e) {
+    console.error('Failed to sync history:', e);
+  }
 }
 
 function renderHistory() {
@@ -128,7 +169,7 @@ function spin() {
 
 function reset() {
   if (state.spinning) return;
-  if (!confirm('出題履歴と保存データをリセットしますか？')) return;
+  if (!confirm('出勤履歴と保存データをリセットしますか？')) return;
   state.history = [];
   localStorage.removeItem('talkGachaHistory');
   renderHistory();
