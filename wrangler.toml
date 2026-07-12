@@ -1,9 +1,7 @@
 name = "talk-gacha"
-main = "workers-site/index.js"
 compatibility_date = "2025-07-06"
 
-[site]
-bucket = "./dist"
+pages_build_output_dir = "pages/public"
 
 [[d1_databases]]
 binding = "DB"
