@@ -19,7 +19,7 @@ const els = {
 
 async function init() {
   try {
-    const res = await fetch('/topics.json');
+    const res = await fetch('/api/topics');
     const data = await res.json();
     state.categories = data.categories;
     state.topics = data.topics;
