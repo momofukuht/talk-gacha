@@ -10,19 +10,24 @@ export async function onRequest({ env }) {
 
     const data = {
       categories: categoriesResult.results,
-      topics: topicsResult.results.map(t => ({
-        ...t,
-        tags: JSON.parse(t.tags)
-      }))
+      topics: topicsResult.results.map(t => {
+        let tags;
+        try {
+          tags = JSON.parse(t.tags);
+        } catch {
+          tags = [];
+        }
+        return { ...t, tags };
+      }),
     };
 
     return new Response(JSON.stringify(data), {
-      headers: { "Content-Type": "application/json" }
+      headers: { "Content-Type": "application/json" },
     });
-  } catch (err) {
-    return new Response(JSON.stringify({ error: err.message }), {
+  } catch (_err) {
+    return new Response(JSON.stringify({ error: "Internal server error" }), {
       status: 500,
-      headers: { "Content-Type": "application/json" }
+      headers: { "Content-Type": "application/json" },
     });
   }
 }

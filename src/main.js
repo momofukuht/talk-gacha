@@ -55,9 +55,13 @@ function persistHistory() {
 function getOrCreateDeviceId() {
   let id = localStorage.getItem(DEVICE_KEY);
   if (id && DEVICE_ID_RE.test(id)) return id;
-  id = (typeof crypto !== 'undefined' && crypto.randomUUID)
-    ? crypto.randomUUID()
-    : `${Date.now()}-${Math.random().toString(36).slice(2, 12)}`;
+  if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+    id = crypto.randomUUID();
+  } else {
+    // Math.random() is predictable — only reached in very old browsers.
+    console.error("crypto.randomUUID not available; using insecure fallback device id");
+    id = `${Date.now()}-${Math.random().toString(36).slice(2, 12)}`;
+  }
   localStorage.setItem(DEVICE_KEY, id);
   return id;
 }
