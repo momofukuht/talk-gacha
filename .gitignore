@@ -5,3 +5,5 @@ dist/
 .vscode/
 *.log
 _test_api.mjs
+.wrangler/
+.wrangler-state/
