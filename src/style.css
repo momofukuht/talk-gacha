@@ -123,7 +123,7 @@ header h1 {
   font-size: 0.75rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  background: var(--accent);
+  background: var(--badge-color, var(--accent));
   color: #fff;
   letter-spacing: 0.05em;
 }
@@ -136,6 +136,7 @@ header h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--topic-color, var(--text-primary));
 }
 
 .tags {
@@ -262,7 +263,7 @@ header h1 {
 
 .history-item .category {
   font-size: 0.8rem;
-  color: var(--text-secondary);
+  color: var(--history-color, var(--text-secondary));
 }
 
 .empty {

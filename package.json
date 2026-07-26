@@ -1,13 +1,15 @@
 {
   "name": "talk-gacha",
   "version": "1.0.0",
+  "type": "module",
   "description": "トークテーマガチャ - 雑談が盛り上がる話題ルーレット",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "deploy": "wrangler pages deploy dist",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "test:api": "node _test_api.mjs"
   },
   "devDependencies": {
     "prettier": "^3.0.0",
